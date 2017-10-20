@@ -27,6 +27,7 @@ This script originates from William Lam and his effort to build a nested lab aut
 ## Requirements
 * 1 x Physical ESXi host or vCenter Server running at least vSphere 6.0u2 or later
 * Windows system
+* Remote IP DataStore (Synology ISCSI/NFS Mounts)
 * [PowerCLI 6.5 R1](https://my.vmware.com/group/vmware/details?downloadGroup=PCLI650R1&productId=568)
 * vCenter Server Appliance (VCSA) 6.5 extracted ISO
 * Nested ESXi [6.0](http://www.virtuallyghetto.com/2015/12/deploying-nested-esxi-is-even-easier-now-with-the-esxi-virtual-appliance.html) or [6.5](http://www.virtuallyghetto.com/2016/11/esxi-6-5-virtual-appliance-is-now-available.html) Virtual Appliance OVA
@@ -137,5 +138,5 @@ Once you have saved all your changes, you can then run the script. You will be p
 
 This script was built on the work of William Lam of VMware.  Make sure you visit his blogs and github for better detail on the broader effort he placed on this project. 
 
-William Lam's Github:	https://github.com/lamw/vghetto-vsphere-automated-lab-deployment
-William Lam's Blog:	http://www.virtuallyghetto.com/
+* William Lam's Github:	https://github.com/lamw/vghetto-vsphere-automated-lab-deployment
+* William Lam's Blog:	http://www.virtuallyghetto.com/
