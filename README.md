@@ -14,13 +14,13 @@
 
 ## Description
 
-This script originates from William Lamb and his effort to build a nested lab automated deploy.  I chose to make modifications to support my own needs for Puppet Work.  The deployment supports a fully functional vSphere 6.5 environment that includes a set of Nested ESXi Virtual Appliance(s) ready to configure an IP datastore, as well as a vCenter Server Appliance (VCSA) using PowerCLI.
+This script originates from William Lam and his effort to build a nested lab automated deploy.  I chose to make modifications to support my own selfish needs for Puppet Work.  The deployment supports a fully functional vSphere 6.5 environment that includes a set of Nested ESXi Virtual Appliance(s) ready to configure an IP datastore, as well as a vCenter Server Appliance (VCSA) using PowerCLI.  The VCSA requires a mounted datastore before building any new VMs.
 
 ## Changelog
 
 # **10/18/17**
 	
-	* Modified William Lamb's nested vm powercli scipts
+	* Modified William Lam's nested vm powercli scipts
 	* Deleted all NSX and VSAN related code to simply management
 	* Removed all scripts and images other than 6.5 standard deployment
 
@@ -135,4 +135,7 @@ Once you have saved all your changes, you can then run the script. You will be p
 
 ## Acknowledgement
 
-This script was built on the work of William Lam of VMware.  Make sure you visit his blogs and github for better detail on the broader effort he placed on this project. [M"e= 
+This script was built on the work of William Lam of VMware.  Make sure you visit his blogs and github for better detail on the broader effort he placed on this project. 
+
+William Lam's Github:	https://github.com/lamw/vghetto-vsphere-automated-lab-deployment
+William Lam's Blog:	http://www.virtuallyghetto.com/
