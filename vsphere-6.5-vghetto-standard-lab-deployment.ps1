@@ -54,7 +54,7 @@ $NestedESXiHostnameToIPs = @{
 }
 
 # Nested ESXi VM Resources
-$NestedESXivCPU = "2"
+$NestedESXivCPU = "4"
 $NestedESXivMEM = "12" #GB
 $NestedESXiCachingvDisk = "4" #GB
 $NestedESXiCapacityvDisk = "8" #GB
