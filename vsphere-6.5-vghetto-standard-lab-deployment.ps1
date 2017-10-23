@@ -1,14 +1,12 @@
 # Author: William Lam
 # Website: www.virtuallyghetto.com
 # Description: PowerCLI script to deploy a fully functional vSphere 6.5 lab consisting of 3
-#               Nested ESXi hosts enable w/vSAN + VCSA 6.5. Expects a single physical ESXi host
+#               Nested ESXi hosts enable wVCSA 6.5. Expects a single physical ESXi host
 #               as the endpoint and all four VMs will be deployed to physical ESXi host
 # Reference: http://www.virtuallyghetto.com/2016/11/vghetto-automated-vsphere-lab-deployment-for-vsphere-6-0u2-vsphere-6-5.html
 # Credit: Thanks to Alan Renouf as I borrowed some of his PCLI code snippets :)
 #
 # Changelog
-# 11/22/16
-#   * Automatically handle Nested ESXi on vSAN
 # 01/20/17
 #   * Resolved "Another task in progress" thanks to Jason M
 # 02/12/17
@@ -19,10 +17,6 @@
 # 02/17/17
 #   * Added missing dvFilter param to eth1 (missing in Nested ESXi OVA)
 # 02/21/17
-#   * Support for deploying NSX 6.3 & registering with vCenter Server
-#   * Support for updating Nested ESXi VM to ESXi 6.5a (required for NSX 6.3)
-#   * Support for VDS + VXLAN VMkernel configuration (required for NSX 6.3)
-#   * Support for "Private" Portgroup on eth1 for Nested ESXi VM used for VXLAN traffic (required for NSX 6.3)
 #   * Support for both Virtual & Distributed Portgroup on $VMNetwork
 #   * Support for adding ESXi hosts into VC using DNS name (disabled by default)
 #   * Added CPU/MEM/Storage resource requirements in confirmation screen
@@ -42,7 +36,6 @@ $DeploymentTarget = "ESXI"
 # Full Path to both the Nested ESXi 6.5 VA + extracted VCSA 6.5 ISO
 $NestedESXiApplianceOVA = "C:\Users\admin\Downloads\Nested_ESXi6.5d_Appliance_Template_v1.0.ova"
 $VCSAInstallerPath = "E:\"
-$NSXOVA =  "C:\Users\primp\Desktop\VMware-NSX-Manager-6.3.0-5007049.ova"
 $ESXi65OfflineBundle = "C:\Users\primp\Desktop\ESXi650-201701001\vmw-ESXi-6.5.0-metadata.zip" # Used for offline upgrade only
 $ESXiProfileName = "ESXi-6.5.0-20170404001-standard" # Used for online upgrade only
 
@@ -71,7 +64,7 @@ $VCSASSOPassword = "FamilyR0bersonL@b"
 $VCSARootPassword = "FamilyR0bersonL@b"
 $VCSASSHEnable = "true"
 
-# General Deployment Configuration for Nested ESXi, VCSA & NSX VMs
+# General Deployment Configuration for Nested ESXi, & VCSAVMs
 $VirtualSwitchType = "VSS" # VSS or VDS
 $VMNetwork = "vS0EAN"
 $VMDatastore = "DS-LABDSM-NFS01"
@@ -119,7 +112,6 @@ $vcsaSize2MemoryStorageMap = @{
 
 $esxiTotalCPU = 0
 $vcsaTotalCPU = 0
-$nsxTotalCPU = 0
 $esxiTotalMemory = 0
 $vcsaTotalMemory = 0
 $esxiTotStorage = 0
