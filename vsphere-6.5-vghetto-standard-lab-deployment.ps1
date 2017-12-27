@@ -74,7 +74,7 @@ $VCSASSHEnable = "true"
 # General Deployment Configuration for Nested ESXi, VCSA & NSX VMs
 $VirtualSwitchType = "VSS" # VSS or VDS
 $VMNetwork = "vS0EAN"
-$VMDatastore = "DS-LABDSM-NFS01"
+$VMDatastore = "DS-LABNAS-NFS01"
 $VMNetmask = "255.255.255.0"
 $VMGateway = "10.1.3.1"
 $VMDNS = "10.1.3.1"
