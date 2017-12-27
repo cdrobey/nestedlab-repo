@@ -86,11 +86,11 @@ $VMSyslog = "10.1.3.17"
 $VMSSH = "true"
 $VMVMFS = "false"
 # Applicable to VC Deployment Target only
-$VMCluster = "FR-Cluster"
+$VMCluster = "Cluster"
 
 # Name of new vSphere Datacenter/Cluster when VCSA is deployed
 $NewVCDatacenterName = "Datacenter"
-$NewVCClusterName = "FR-Cluster"
+$NewVCClusterName = "Cluster"
 
 # Advanced Configurations
 # Set to 1 only if you have DNS (forward/reverse) for ESXi hostnames
