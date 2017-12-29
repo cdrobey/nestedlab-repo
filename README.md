@@ -55,7 +55,7 @@ $ESXi65aOfflineBundle = "C:\Users\primp\Desktop\ESXi650-201701001\vmw-ESXi-6.5.0
 
 This section describes the credentials to your physical ESXi server or vCenter Server in which the vSphere lab environment will be deployed to:
 ```console
-$VIServer = "vdsLABNFS"
+$VIServer = "labvsphere"
 $VIUsername = "root"
 $VIPassword = "vmware123"
 ```
