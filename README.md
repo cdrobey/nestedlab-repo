@@ -18,24 +18,25 @@ This script originates from William Lam and his effort to build a nested lab aut
 
 ## Changelog
 
-# **10/18/17**
-	
-	* Modified William Lam's nested vm powercli scipts
-	* Deleted all NSX and VSAN related code to simply management
-	* Removed all scripts and images other than 6.5 standard deployment
+## **10/18/17**
+
+* Modified William Lam's nested vm powercli scipts
+* Deleted all NSX and VSAN related code to simply management
+* Removed all scripts and images other than 6.5 standard deployment
 
 ## Requirements
+
 * 1 x Physical ESXi host or vCenter Server running at least vSphere 6.0u2 or later
 * Windows system
 * Remote IP DataStore (Synology ISCSI/NFS Mounts)
 * [PowerCLI 6.5 R1](https://my.vmware.com/group/vmware/details?downloadGroup=PCLI650R1&productId=568)
 * vCenter Server Appliance (VCSA) 6.5 extracted ISO
 * Nested ESXi [6.0](http://www.virtuallyghetto.com/2015/12/deploying-nested-esxi-is-even-easier-now-with-the-esxi-virtual-appliance.html) or [6.5](http://www.virtuallyghetto.com/2016/11/esxi-6-5-virtual-appliance-is-now-available.html) Virtual Appliance OVA
-  * [ESXi 6.5a offline patch bundle](https://my.vmware.com/web/vmware/details?downloadGroup=ESXI650A&productId=614&rPId=14229) (extracted)
+* [ESXi 6.5a offline patch bundle](https://my.vmware.com/web/vmware/details?downloadGroup=ESXI650A&productId=614&rPId=14229) (extracted)
 
 ## Supported Deployments
 
-The script supports deploying both vSphere 6.5 environment with all VMs deploy directly to a physical ESXihosts.  The deployment includes the setup and configuration of a VCSA applicance.
+The script supports deploying both vSphere 6.0 and 6.5 environments with all VMs deployed directly to a physical ESXihosts.  The deployment includes the setup and configuration of a VCSA applicance.
 
 ## Configuration
 
@@ -55,11 +56,13 @@ $VIPassword = "vmware123"
 ```
 
 This section describes whether your deployment environment (destination) will be an ESXi host or a vCenter Server. You will need to specify either **ESXI** or **VCENTER** keyword:
+
 ```console
 $DeploymentTarget = "ESXI"
 ```
 
 This section defines the number of Nested ESXi VMs to deploy along with their associated IP Address(s). The names are merely the display name of the VMs when deployed. At a minimum, you should deploy at least two hosts, but you can always add additional hosts and the script will automatically take care of provisioning them correctly.
+
 ```console
 $NestedESXiHostnameToIPs = @{
 "vesxi65-1" = "172.30.0.171"
@@ -78,6 +81,7 @@ $NestedESXiCapacityvDisk = "8"
 ```
 
 This section describes the VCSA deployment configuration such as the VCSA deployment size, Networking & SSO configurations. If you have ever used the VCSA CLI Installer, these options should look familiar.
+
 ```console
 $VCSADeploymentSize = "tiny"
 $VCSADisplayName = "vcenter65-1"
@@ -111,11 +115,14 @@ $VMCluster = "LAB-Cluster"
 ```
 
 This section describes the configuration of the new vCenter Server from the deployed VCSA.
+
 ```console
 $NewVCDatacenterName = "Datacenter"
 $NewVCVSANClusterName = "LAB-Cluster"
 ```
+
 This section describes some advanced options for the deployment. Th first setting adds the ESXi hosts into vCenter Server using DNS names (must have both forward/reverse DNS working in your environment). The second option will upgrade the Nested ESXi 6.5 VMs to ESXi 6.5a which is required if you are deploying NSX 6.3 or if you just want to run the latest version of ESXi, you can also enable this. Both of these settings are disabled by default
+
 ```console
 # Set to 1 only if you have DNS (forward/reverse) for ESXi hostnames
 $addHostByDnsName = 0
