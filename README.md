@@ -145,6 +145,18 @@ There is additional verbose logging that outputs as a log file in your current w
 
 Once you have saved all your changes, you can then run the script. You will be provided with a summary of what will be deployed and you can verify that everything is correct before attempting the deployment. Below is a screenshot on what this would look like:
 
+## Post Installation Instructions
+
+After the installation completes you need to mount the shared storage used for the nested environment.  I build a linux VM and export an NFS file system from the a VM on the host system.
+
+To export the file system correctly, **/etc/exports**, needs to allow root access to the file system.
+
+'''console
+/vmware 192.168.1.0/24(rw,async,no_wdelay,root_squash,insecure_locks,sec=sys,anonui
+d=65534,anongid=65534)
+'''
+
+The operating system images for Centos, Ubuntu, and Windows 2016 must be registered after the file system is mounted.  The images may be used by the terraform-repo to build the client vms.
 
 ## Acknowledgement
 
