@@ -18,7 +18,12 @@ This script originates from William Lam and his effort to build a nested lab aut
 
 ## Changelog
 
-## **10/18/17**
+### **12/28/17**
+
+* Updated scripts to support testing against new ESXI target.
+* Performed testing and teardown on multiple scenarios.
+
+### **10/18/17**
 
 * Modified William Lam's nested vm powercli scipts
 * Deleted all NSX and VSAN related code to simply management
