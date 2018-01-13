@@ -102,6 +102,7 @@ $VCSASSHEnable = "true"
 ```
 
 This section describes the location as well as the generic networking settings applied to BOTH the Nested ESXi VM and VCSA.
+
 ```console
 $VirtualSwitchType = "VDS" # VSS or VDS for both $VMNetwork & $PrivateVXLANVMNetwork
 $VMNetwork = "vS0LAB"
